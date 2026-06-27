@@ -1,4 +1,4 @@
-from codeUml.game import Game
+from codeUml.Game import Game
 
 game = Game()
 game.run()
