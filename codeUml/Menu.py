@@ -11,7 +11,7 @@ from codeUml.Const import WIN_WIDTH, MENU_OPTION, C_WHITE, C_YELLOW
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load('./asset/BGmenu.png')  # colocara img de backgroud do menu
+        self.surf = pygame.image.load('./asset/BGmenu.png').convert_alpha()  # colocara img de backgroud do menu
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self, ):
@@ -39,21 +39,18 @@ class Menu:
                     pygame.quit()  # Close window
                     quit()  # end pygame
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_DOWN: # Down key
-                       if menu_option < len(MENU_OPTION) - 1:
-                           menu_option += 1
-                       else:
-                           menu_option = 0
-                    if event.key == pygame.K_UP: # UP key
-                       if menu_option > 0:
-                           menu_option -= 1
-                       else:
-                           menu_option = len(MENU_OPTION) - 1
-                    if event.key == pygame.K_RETURN: #ENTER
+                    if event.key == pygame.K_DOWN:  # Down key
+                        if menu_option < len(MENU_OPTION) - 1:
+                            menu_option += 1
+                        else:
+                            menu_option = 0
+                    if event.key == pygame.K_UP:  # UP key
+                        if menu_option > 0:
+                            menu_option -= 1
+                        else:
+                            menu_option = len(MENU_OPTION) - 1
+                    if event.key == pygame.K_RETURN:  # ENTER
                         return MENU_OPTION[menu_option]
-
-
-
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont(name='Impact ', size=text_size)

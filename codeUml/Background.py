@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
-from Entity import Entity
+from codeUml.Const import WIN_WIDTH, ENTITY_SPEED
+from codeUml.Entity import Entity
 
 
 class Background(Entity):
@@ -10,4 +10,8 @@ class Background(Entity):
 
 
     def move(self, ):
-        pass
+        self.rect.centerx -= ENTITY_SPEED[self.name]
+        if self.rect.right <= 0 :
+            self.rect.left = WIN_WIDTH
+
+
