@@ -15,6 +15,16 @@ ENTITY_SPEED = {
     'Enemy1': 2,
     'Enemy2': 1
 }
+ENTITY_HEALTH = {
+    'LevelBG0': 999,
+    'LevelBG1': 999,
+    'LevelBG2': 999,
+    'LevelBG3': 999,
+    'Player1': 300,
+    'Player2': 300,
+    'Enemy1': 50,
+    'Enemy2': 60
+}
 # M
 MENU_OPTION = ('NEW GAME 1P',
                'NEW GAME 2P - COOPERATIVE',
