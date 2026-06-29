@@ -1,11 +1,21 @@
+from codeUml.Const import WIN_WIDTH
+from codeUml.Enemy import Enemy
+from codeUml.EnemyShot import EnemyShot
 from codeUml.Entity import Entity
+from codeUml.PlayerShot import PlayerShot
 
 
 class EntityMediator:
     @staticmethod
     def __verify_collision_window(ent: Entity):
-        if isinstance(ent, Entity):
-            if ent.rect.right < 0:
+        if isinstance(ent, Enemy):
+            if ent.rect.right <= 0:
+                ent.health = 0
+        if isinstance(ent, PlayerShot):
+            if ent.rect.left >= WIN_WIDTH:
+                ent.health = 0
+        if isinstance(ent, EnemyShot):
+            if ent.rect.right <= 0:
                 ent.health = 0
         pass
 
