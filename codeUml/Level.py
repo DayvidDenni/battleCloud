@@ -7,7 +7,7 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from codeUml.Const import C_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY
+from codeUml.Const import C_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, C_BLACK, C_CYAN
 from codeUml.Enemy import Enemy
 from codeUml.Entity import Entity
 from codeUml.EntityFactory import EntityFactory
@@ -41,6 +41,10 @@ class Level:
                     shoot = ent.shoot()
                     if shoot is not None:
                         self.entity_list.append(shoot)
+                if ent.name == 'Player1':
+                    self.level_text(16, f'Player1 - HEALTH: {ent.health} | SCORE: {ent.score}', C_BLACK, (10, 25))
+                if ent.name == 'Player2':
+                    self.level_text(16, f'Player2 - HEALTH: {ent.health} | SCORE: {ent.score}', C_CYAN, (10, 50))
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
